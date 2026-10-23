@@ -14,7 +14,175 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      ig_highlights: {
+        Row: {
+          cover_url: string | null
+          created_at: string
+          id: string
+          position: number
+          profile_id: string
+          title: string
+          user_id: string
+        }
+        Insert: {
+          cover_url?: string | null
+          created_at?: string
+          id?: string
+          position?: number
+          profile_id: string
+          title?: string
+          user_id: string
+        }
+        Update: {
+          cover_url?: string | null
+          created_at?: string
+          id?: string
+          position?: number
+          profile_id?: string
+          title?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ig_highlights_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "ig_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ig_posts: {
+        Row: {
+          caption: string
+          cover_url: string | null
+          created_at: string
+          external_id: string | null
+          id: string
+          kind: string
+          media_urls: string[]
+          pinned: boolean
+          position: number
+          profile_id: string
+          show_in_grid: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          caption?: string
+          cover_url?: string | null
+          created_at?: string
+          external_id?: string | null
+          id?: string
+          kind?: string
+          media_urls?: string[]
+          pinned?: boolean
+          position?: number
+          profile_id: string
+          show_in_grid?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          caption?: string
+          cover_url?: string | null
+          created_at?: string
+          external_id?: string | null
+          id?: string
+          kind?: string
+          media_urls?: string[]
+          pinned?: boolean
+          position?: number
+          profile_id?: string
+          show_in_grid?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "ig_posts_profile_id_fkey"
+            columns: ["profile_id"]
+            isOneToOne: false
+            referencedRelation: "ig_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ig_profiles: {
+        Row: {
+          avatar_url: string | null
+          bio: string
+          category: string
+          created_at: string
+          external_account_id: string | null
+          followers: string
+          following: string
+          full_name: string
+          id: string
+          is_verified: boolean
+          link: string
+          posts_count_override: string | null
+          source: string
+          updated_at: string
+          user_id: string
+          username: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          bio?: string
+          category?: string
+          created_at?: string
+          external_account_id?: string | null
+          followers?: string
+          following?: string
+          full_name?: string
+          id?: string
+          is_verified?: boolean
+          link?: string
+          posts_count_override?: string | null
+          source?: string
+          updated_at?: string
+          user_id: string
+          username?: string
+        }
+        Update: {
+          avatar_url?: string | null
+          bio?: string
+          category?: string
+          created_at?: string
+          external_account_id?: string | null
+          followers?: string
+          following?: string
+          full_name?: string
+          id?: string
+          is_verified?: boolean
+          link?: string
+          posts_count_override?: string | null
+          source?: string
+          updated_at?: string
+          user_id?: string
+          username?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          display_name: string | null
+          id: string
+        }
+        Insert: {
+          created_at?: string
+          display_name?: string | null
+          id: string
+        }
+        Update: {
+          created_at?: string
+          display_name?: string | null
+          id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
