@@ -109,7 +109,7 @@ function Tile({
       ) : videoOnly ? (
         <video src={videoOnly} muted playsInline preload="metadata" className="absolute inset-0 h-full w-full object-cover" />
       ) : null}
-      <span className="pointer-events-none absolute right-[6px] top-[6px] flex gap-1 text-ig-bg drop-shadow-[0_0_2px_rgba(0,0,0,0.45)]">
+      <span className="pointer-events-none absolute right-[6px] top-[6px] flex gap-1 text-ig-bg ig-badge">
         {showPin && post.pinned ? (
           <PinBadge size={18} />
         ) : post.kind === "reel" ? (
