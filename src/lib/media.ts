@@ -22,7 +22,7 @@ export async function resolveUrls(values: (string | null | undefined)[]): Promis
 export async function uploadFile(userId: string, file: Blob, ext: string): Promise<string> {
   const path = `${userId}/${crypto.randomUUID()}.${ext}`;
   const { error } = await supabase.storage.from(BUCKET).upload(path, file, {
-    contentType: file.type || undefined,
+    ...(file.type ? { contentType: file.type } : {}),
     upsert: false,
   });
   if (error) throw error;

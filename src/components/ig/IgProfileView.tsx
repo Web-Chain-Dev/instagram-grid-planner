@@ -32,14 +32,14 @@ import {
 } from "./icons";
 
 export type IgViewHandlers = {
-  editable?: boolean;
-  onTileClick?: (p: IgPost) => void;
-  onReorder?: (ids: string[]) => void;
-  onInvalidMove?: () => void;
-  onHighlightClick?: (h: IgHighlight) => void;
-  onAddHighlight?: () => void;
-  onReorderHighlights?: (ids: string[]) => void;
-  onEditProfile?: () => void;
+  editable?: boolean | undefined;
+  onTileClick?: ((p: IgPost) => void) | undefined;
+  onReorder?: ((ids: string[]) => void) | undefined;
+  onInvalidMove?: (() => void) | undefined;
+  onHighlightClick?: ((h: IgHighlight) => void) | undefined;
+  onAddHighlight?: (() => void) | undefined;
+  onReorderHighlights?: ((ids: string[]) => void) | undefined;
+  onEditProfile?: (() => void) | undefined;
 };
 
 type Props = IgViewHandlers & {
@@ -158,7 +158,7 @@ function HighlightBubble({
   h: IgHighlight;
   size: number;
   fontSize: number;
-  editable?: boolean;
+  editable?: boolean | undefined;
   onClick: () => void;
 }) {
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({ id: h.id, disabled: !editable });
@@ -187,7 +187,7 @@ function HighlightBubble({
   );
 }
 
-function EmptyGrid({ tab, editable }: { tab: Tab; editable?: boolean }) {
+function EmptyGrid({ tab, editable }: { tab: Tab; editable?: boolean | undefined }) {
   const label = tab === "tagged" ? "Photos and videos of you" : tab === "reels" ? "Share a moment with the world" : "Share photos";
   return (
     <div className="flex flex-col items-center px-8 py-14 text-center">

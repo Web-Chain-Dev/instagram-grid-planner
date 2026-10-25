@@ -17,11 +17,11 @@ type Props = {
   posts: IgPost[];
   gap: number;
   aspect: string;
-  editable?: boolean;
-  onTileClick?: (post: IgPost) => void;
-  onReorder?: (ids: string[]) => void;
-  onInvalidMove?: () => void;
-  showPins?: boolean;
+  editable?: boolean | undefined;
+  onTileClick?: ((post: IgPost) => void) | undefined;
+  onReorder?: ((ids: string[]) => void) | undefined;
+  onInvalidMove?: (() => void) | undefined;
+  showPins?: boolean | undefined;
 };
 
 export function IgGrid({ posts, gap, aspect, editable, onTileClick, onReorder, onInvalidMove, showPins = true }: Props) {
@@ -36,7 +36,7 @@ export function IgGrid({ posts, gap, aspect, editable, onTileClick, onReorder, o
     if (!over || active.id === over.id) return;
     const from = posts.findIndex((p) => p.id === active.id);
     const to = posts.findIndex((p) => p.id === over.id);
-    if (posts[from].pinned !== posts[to].pinned) {
+    if (posts[from]?.pinned !== posts[to]?.pinned) {
       onInvalidMove?.();
       return;
     }
@@ -77,7 +77,7 @@ function Tile({
 }: {
   post: IgPost;
   aspect: string;
-  editable?: boolean;
+  editable?: boolean | undefined;
   onClick: () => void;
   showPin: boolean;
 }) {

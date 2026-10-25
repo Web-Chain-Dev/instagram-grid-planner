@@ -41,7 +41,10 @@ function Editor() {
   const upload = (files: FileList | null, asCarousel = false) => {
     if (!files?.length) return;
     const list = Array.from(files);
-    if (asCarousel && list.length < 2) return toast.error("Pick at least 2 files for a carousel");
+    if (asCarousel && list.length < 2) {
+      toast.error("Pick at least 2 files for a carousel");
+      return;
+    }
     toast.promise(m.addPosts.mutateAsync({ files: list, asCarousel }), {
       loading: `Uploading ${list.length} file${list.length > 1 ? "s" : ""}…`,
       success: "Added to grid",

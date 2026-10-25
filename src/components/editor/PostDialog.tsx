@@ -69,7 +69,10 @@ export function PostDialog({ post, canPin, onClose, onSave, onDelete }: Props) {
             <Switch
               checked={post.pinned}
               onCheckedChange={(v) => {
-                if (v && !canPin) return toast.error(`You can only pin ${MAX_PINNED} posts`);
+                if (v && !canPin) {
+                  toast.error(`You can only pin ${MAX_PINNED} posts`);
+                  return;
+                }
                 save({ pinned: v });
               }}
             />

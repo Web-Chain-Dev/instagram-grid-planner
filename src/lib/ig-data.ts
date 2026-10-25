@@ -139,7 +139,7 @@ export function useWorkspaceMutations(profileId: string) {
               user_id: userId,
               kind: "carousel" as PostKind,
               media_urls: uploaded.map((u) => u.path),
-              cover_url: uploaded[0].cover ?? uploaded[0].path,
+              cover_url: uploaded[0]!.cover ?? uploaded[0]!.path,
               position: minPos - 1,
             },
           ]
@@ -160,7 +160,7 @@ export function useWorkspaceMutations(profileId: string) {
   });
 
   const updatePost = useMutation({
-    mutationFn: async (input: { id: string; patch: Partial<IgPost>; newCover?: File | null }) => {
+    mutationFn: async (input: { id: string; patch: Partial<IgPost>; newCover?: File | null | undefined }) => {
       const { coverSrc: _c, mediaSrcs: _m, ...patch } = input.patch as IgPost;
       void _c;
       void _m;

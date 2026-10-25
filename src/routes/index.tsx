@@ -48,8 +48,7 @@ function Index() {
           {Array.from({ length: 12 }).map((_, i) => (
             <div
               key={i}
-              className="aspect-[3/4]"
-              style={{ background: `oklch(${0.55 + (i % 4) * 0.1} ${0.08 + (i % 3) * 0.04} ${30 + i * 18})` }}
+              className={`aspect-[3/4] ${["bg-primary", "bg-accent", "bg-secondary", "bg-muted-foreground"][i % 4]}`}
             />
           ))}
         </div>
