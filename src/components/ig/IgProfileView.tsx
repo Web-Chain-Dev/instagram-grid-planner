@@ -33,13 +33,13 @@ import {
 
 export type IgViewHandlers = {
   editable?: boolean | undefined;
-  onTileClick?: (p: IgPost) => void | undefined;
-  onReorder?: (ids: string[]) => void | undefined;
-  onInvalidMove?: () => void | undefined;
-  onHighlightClick?: (h: IgHighlight) => void | undefined;
-  onAddHighlight?: () => void | undefined;
-  onReorderHighlights?: (ids: string[]) => void | undefined;
-  onEditProfile?: () => void | undefined;
+  onTileClick?: ((p: IgPost) => void) | undefined;
+  onReorder?: ((ids: string[]) => void) | undefined;
+  onInvalidMove?: (() => void) | undefined;
+  onHighlightClick?: ((h: IgHighlight) => void) | undefined;
+  onAddHighlight?: (() => void) | undefined;
+  onReorderHighlights?: ((ids: string[]) => void) | undefined;
+  onEditProfile?: (() => void) | undefined;
 };
 
 type Props = IgViewHandlers & {

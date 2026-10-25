@@ -18,9 +18,9 @@ type Props = {
   gap: number;
   aspect: string;
   editable?: boolean | undefined;
-  onTileClick?: (post: IgPost) => void | undefined;
-  onReorder?: (ids: string[]) => void | undefined;
-  onInvalidMove?: () => void | undefined;
+  onTileClick?: ((post: IgPost) => void) | undefined;
+  onReorder?: ((ids: string[]) => void) | undefined;
+  onInvalidMove?: (() => void) | undefined;
   showPins?: boolean | undefined;
 };
 
