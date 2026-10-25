@@ -123,15 +123,15 @@ function Dashboard() {
             <Label htmlFor="u">Instagram username</Label>
             <Input id="u" placeholder="@yourname" value={username} onChange={(e) => setUsername(e.target.value)} />
             <Button className="w-full" disabled={busy}>
-              {importers[0].label}
+              {importers[0]!.label}
             </Button>
           </form>
           <div className="rounded-xl border p-4 opacity-70">
             <div className="flex items-center gap-2 font-semibold">
-              <Instagram className="h-4 w-4" /> {importers[1].label}
+              <Instagram className="h-4 w-4" /> {importers[1]!.label}
               <span className="ml-auto rounded-full bg-muted px-2 py-0.5 text-xs">Coming soon</span>
             </div>
-            <p className="mt-1 text-sm text-muted-foreground">{importers[1].description}</p>
+            <p className="mt-1 text-sm text-muted-foreground">{importers[1]!.description}</p>
           </div>
         </DialogContent>
       </Dialog>
